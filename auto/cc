@@ -65,7 +65,7 @@ case $NJS_CC_NAME in
         njs_define=NJS_GCC . auto/define
 
         NJS_CFLAGS="$NJS_CFLAGS -pipe"
-        NJS_CFLAGS="$NJS_CFLAGS -fPIC"
+        #NJS_CFLAGS="$NJS_CFLAGS -fPIC"
 
         # Do not export symbols except explicitly marked with NJS_EXPORT.
         NJS_CFLAGS="$NJS_CFLAGS -fvisibility=hidden"
@@ -73,7 +73,7 @@ case $NJS_CC_NAME in
         # c99/gnu99 conflict with Solaris XOPEN.
         #NJS_CFLAGS="$NJS_CFLAGS -std=gnu99"
 
-        NJS_CFLAGS="$NJS_CFLAGS -O"
+        #NJS_CFLAGS="$NJS_CFLAGS -O"
         #NJS_CFLAGS="$NJS_CFLAGS -O0"
         NJS_CFLAGS="$NJS_CFLAGS -W -Wall -Wextra"
 
@@ -98,7 +98,7 @@ case $NJS_CC_NAME in
         NJS_CFLAGS="$NJS_CFLAGS -Werror"
 
         # Debug.
-        NJS_CFLAGS="$NJS_CFLAGS -g"
+        #NJS_CFLAGS="$NJS_CFLAGS -g"
 
         if [ "$NJS_ADDRESS_SANITIZER" = "YES" ]; then
             NJS_CFLAGS="$NJS_CFLAGS -fsanitize=address"
@@ -110,12 +110,12 @@ case $NJS_CC_NAME in
         njs_define=NJS_CLANG . auto/define
 
         NJS_CFLAGS="$NJS_CFLAGS -pipe"
-        NJS_CFLAGS="$NJS_CFLAGS -fPIC"
+        # NJS_CFLAGS="$NJS_CFLAGS -fPIC"
 
         # Do not export symbols except explicitly marked with NJS_EXPORT.
         NJS_CFLAGS="$NJS_CFLAGS -fvisibility=hidden"
 
-        NJS_CFLAGS="$NJS_CFLAGS -O"
+        #NJS_CFLAGS="$NJS_CFLAGS -O"
         #NJS_CFLAGS="$NJS_CFLAGS -O0"
         NJS_CFLAGS="$NJS_CFLAGS -W -Wall -Wextra"
 
@@ -133,14 +133,6 @@ case $NJS_CC_NAME in
         # Stop on warning.
         NJS_CFLAGS="$NJS_CFLAGS -Werror"
 
-        # Debug.
-
-        if [ "$NJS_SYSTEM_PLATFORM" != "powerpc" ]; then
-            # "-g" flag causes the "unknown pseudo-op: `.cfi_sections'"
-            # error on PowerPC Clang.
-            NJS_CFLAGS="$NJS_CFLAGS -g"
-        fi
-
         if [ "$NJS_ADDRESS_SANITIZER" = "YES" ]; then
             NJS_CFLAGS="$NJS_CFLAGS -fsanitize=address"
             NJS_CFLAGS="$NJS_CFLAGS -fno-omit-frame-pointer"
@@ -151,13 +143,13 @@ case $NJS_CC_NAME in
     SunC)
         njs_define=NJS_SUNC . auto/define
 
-        NJS_CFLAGS="$NJS_CFLAGS -fPIC"
+        # NJS_CFLAGS="$NJS_CFLAGS -fPIC"
         # Optimization.
-        NJS_CFLAGS="$NJS_CFLAGS -O -fast"
+        #NJS_CFLAGS="$NJS_CFLAGS -O -fast"
         # Stop on warning.
         NJS_CFLAGS="$NJS_CFLAGS -errwarn=%all"
         # Debug.
-        NJS_CFLAGS="$NJS_CFLAGS -g"
+        #NJS_CFLAGS="$NJS_CFLAGS -g"
 
         if [ "$NJS_ADDRESS_SANITIZER" = "YES" ]; then
             echo " - Address sanitizer is not supported by $NJS_CC_NAME"

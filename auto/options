@@ -36,6 +36,7 @@ do
         --ar=*)                          AR="$value"                         ;;
 
         --build-dir=*)                   NJS_BUILD_DIR="$value"              ;;
+        --install-dir=*)                 NJS_INSTALL_DIR="$value"              ;;
 
         --address-sanitizer=*)           NJS_ADDRESS_SANITIZER="$value"      ;;
         --addr2line=*)                   NJS_ADDR2LINE="$value"              ;;

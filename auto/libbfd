@@ -12,21 +12,15 @@ if [ $NJS_ADDR2LINE = YES ]; then
     njs_feature_run=yes
     njs_feature_incs=
     njs_feature_libs="-lbfd"
-    njs_feature_test="#include <bfd.h>
+    njs_feature_test="#define PACKAGE \"package\"
+                      #define PACKAGE_VERSION \"0.0.0\"
+                      #include <bfd.h>
 
                       int main() {
                           bfd_init();
                           return 0;
-                     }"
+                      }"
     . auto/feature
-
-    if [ $njs_found = no ]; then
-        njs_feature="OpenSSL library -lcrypto"
-        njs_feature_libs="-lcrypto"
-
-        . auto/feature
-    fi
-
 
     if [ $njs_found = yes ]; then
         NJS_HAVE_LIBBFD=YES

@@ -15,6 +15,7 @@ default: "$NJS_LD_OPT"
   --ar=FILE                 set static linking program, default: "$AR"
 
   --build-dir=DIR           set build directory, default: "$NJS_BUILD_DIR"
+  --install-dir=DIR         set install directory, default: "$NJS_INSTALL_DIR"
 
   --no-pcre                 disables PCRE/PCRE2 discovery for RegExp
                             backend. This flag allows to build PCRE/PCRE2

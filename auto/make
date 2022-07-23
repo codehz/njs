@@ -327,4 +327,11 @@ include $NJS_MAKEFILE
 clean:
 	rm -rf $NJS_BUILD_DIR Makefile
 
+.PHONY: install
+install: default
+	install -d $NJS_INSTALL_DIR/{include,lib,bin}
+	install $NJS_BUILD_DIR/libnjs.a $NJS_INSTALL_DIR/lib
+	install -m 755 $NJS_BUILD_DIR/njs $NJS_INSTALL_DIR/bin
+	install -D src/*.h build/*.h $NJS_INSTALL_DIR/include
+
 END
